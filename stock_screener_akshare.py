@@ -3,7 +3,7 @@
 
 Screening rules:
 1) current_price < ma120 * 0.88
-2) pe_dynamic < 15
+2) pe_dynamic < 20
 """
 
 from __future__ import annotations
@@ -175,7 +175,7 @@ def main() -> None:
     screened = df_all[
         (df_all["latest_price"] < df_all["ma120"] * 0.88)
         & (df_all["pe_dynamic"] > 0)
-        & (df_all["pe_dynamic"] < 15)
+        & (df_all["pe_dynamic"] < 20)
     ].copy()
     screened = screened.sort_values(["price_ma120_ratio", "pe_dynamic"], ascending=[True, True])
 
